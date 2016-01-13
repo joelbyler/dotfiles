@@ -1,6 +1,6 @@
 " pathogen.vim - path option manipulation
 " Maintainer:   Tim Pope <http://tpo.pe/>
-" Version:      2.3
+" Version:      2.4
 
 " Install in ~/.vim/autoload (or ~\vimfiles\autoload).
 "
@@ -90,7 +90,8 @@ function! pathogen#cycle_filetype() abort
 endfunction
 
 " Check if a bundle is disabled.  A bundle is considered disabled if its
-" basename or full name is included in the list g:pathogen_disabled.
+" basename or full name is included in the list g:pathogen_blacklist or the
+" comma delimited environment variable $VIMBLACKLIST.
 function! pathogen#is_disabled(path) abort
   if a:path =~# '\~$'
     return 1
@@ -181,7 +182,7 @@ function! pathogen#expand(pattern, ...) abort
       call extend(results, pathogen#expand(pattern))
     endfor
   elseif a:pattern =~# '{}'
-    let pat = matchstr(a:pattern.after, '^.*{}[^*]*\%($\|[\\/]\)')
+    let pat = matchstr(a:pattern, '^.*{}[^*]*\%($\|[\\/]\)')
     let post = a:pattern[strlen(pat) : -1]
     let results = map(split(glob(substitute(pat, '{}', '*', 'g')), "\n"), 'v:val.post')
   else
