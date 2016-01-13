@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/jbyler/vagrant/code/central/path/ruby'
+let g:netrw_dirhist_2='/Users/jbyler/vagrant/code/pbmproxy/config/deploy'
+let g:netrw_dirhist_3='/Users/jbyler/vagrant/code/central/db/workflows'
