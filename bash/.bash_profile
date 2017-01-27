@@ -17,7 +17,7 @@ alias gp='git push'
 alias gs='git status'
 alias r='bundle exec rails'
 alias rk='bundle exec rake'
-
+alias docker-gc='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc && docker volume rm $(docker volume ls --filter dangling=true -q | egrep \'\\w{64}\')'
 
 sh-add -L &> /dev/null
 if [ $? -eq 1 ]; then
